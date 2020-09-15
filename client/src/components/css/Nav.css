@@ -1,0 +1,23 @@
+/* Navbar */
+.navbar {
+  padding: 17px 24px;
+  border-bottom: 1px solid var(--secondary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  height: 36px;
+  text-align: center;
+}
+
+.navbar__menu {
+  display: flex;
+}
+
+.navbar__menu__item {
+  list-style: none;
+  padding: 12px;
+  color: var(--gray);
+}
+
