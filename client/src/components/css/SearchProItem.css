@@ -1,0 +1,35 @@
+
+.gosulist {
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--secondary);
+  padding-top: 1.0rem;
+  padding-bottom: 1.0rem;
+}
+
+.gosulist a{
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+
+.picture img {
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.profile {
+  margin-left: 10px;
+  padding: 5px;
+}
+.profile div{
+  margin-bottom: 5px;  
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.review {
+  font-size: 14px;
+}

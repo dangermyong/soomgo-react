@@ -13,7 +13,7 @@ function Nav() {
         <ul className="navbar__menu">
           <Link className="navbar__menu__item" to='/'>고수가입</Link>
           <Link className="navbar__menu__item" to='/choose-account'>회원가입</Link>
-          <Link className="navbar__menu__item" to='/'>고수찾기</Link>
+          <Link className="navbar__menu__item" to='/search/pro'>고수찾기</Link>
           <Link className="navbar__menu__item" to='/signin'>로그인</Link>
         </ul>
       </div>

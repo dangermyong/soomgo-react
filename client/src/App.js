@@ -2,8 +2,10 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ChooseAccount from './components/ChooseAccount';
 import Footer from './components/Footer';
+import Home from './components/Home';
 import Nav from './components/Nav';
-// import Signin from './components/Signin';
+import SearchPro from './components/SearchPro';
+import Signin from './components/Signin';
 import Signup from './components/Signup';
 
 function App() {
@@ -13,8 +15,10 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path='/signup' component={Signup} />
+          <Route exact path='/signin' component={Signin} />
           <Route exact path='/choose-account' component={ChooseAccount} />
-          {/* <Route exact path='/' component={Home} /> */}
+          <Route exact path='/search/pro' component={SearchPro} />
+          <Route exact path='/' component={Home} />
           {/* <PrivateRoute exact path='/dashboard' component={Dashboard} /> */}
         </Switch>
         <Footer />

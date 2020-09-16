@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './css/Signup.css'
 
@@ -6,54 +7,56 @@ function Signup() {
   const [values, setValues] = useState({
     name: 'asdf',
     email: 'asdf1234@gmail.com',
-    password: 'asdf1234',
-    error: '',
-    success: false,
+    password: 'asdf1234'
   })
+  const [success, setSuccess] = useState(false)
+  const [message, setMessage] = useState('')
 
-  const {name, email, password, success, error } = values
+  const { name, email, password } = values
 
   function signup(name, email, password) {
-    axios.post('http://localhost:5000/signup', {
+    axios.post('http://localhost:5000/api/signup', {
         name, email, password
     })
       .then(response => {
         console.log(response.data)
+        setMessage('회원가입이 완료되었습니다.')
+        setSuccess(true)
       })
       .catch(err => {
-        console.log(err)
+        console.log(err.response.data.err)
+        setMessage(err.response.data.err)
+        setSuccess(false)
       })
-      
   }
-
 
   const handleChange = name => event => {
     setValues({
       ...values, 
-      error: false, 
       [name]: event.target.value
     })
   }
 
   const clickSubmit = event => {
     event.preventDefault()
-    setValues({...values, error: false})
-    console.log(name, email, password)
-    signup({ name, email, password })
-    .then(data => {
-      if(data.error) {
-        setValues({...values, error: data.error, success: false})
-      } else {
-        setValues({...values, name: '', email: '', password:'',  error: '', success: true})
-      }
-    })
+    signup( name, email, password )
   }
+
+  const showError = () => (
+    <div className="message" style={{display: success ? 'none' : ''}}>{message}</div>
+  )
+
+  const showSuccess = () => (
+    <div className="message" style={{display: success ? '' : 'none'}}>New account is created. Please Click here <Link to='/signin'>Signin</Link></div>
+  )
 
   return (
     <div>
       <div className="signup-form">
         <h1>숨고에 오신 것을 환영합니다</h1>
-        <form >
+        {showSuccess()}
+        {showError()}
+        <form className='signupForm'>
           <label className="title">이름</label>
           <input 
             type="text" 
@@ -86,7 +89,7 @@ function Signup() {
             동의합니다
           </p>
           <p> {name}, {email}, {password} </p>
-          <button onSubmit={clickSubmit} className="signup-btn new-btn">회원가입</button>
+          <button onClick={clickSubmit} className="signup-btn new-btn">회원가입</button>
           <button className="signup-btn facebook-btn">페이스북으로 가입하기</button>
           <p className="small small_center">
             유저의 허락없이 게시물을 올리지 않습니다

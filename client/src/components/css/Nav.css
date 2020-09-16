@@ -18,6 +18,7 @@
 .navbar__menu__item {
   list-style: none;
   padding: 12px;
-  color: var(--gray);
+  color: #323232;
+  font-weight: 600;
 }
 

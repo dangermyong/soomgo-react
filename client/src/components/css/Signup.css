@@ -10,8 +10,13 @@
     font-weight: 500;
     text-align: center;
   }
+
+  .message {
+    font-size: small;
+    margin-bottom: 10px;
+  }
   
-  form {
+  .signupForm {
     /* border: 1px solid #999; */
     padding: 12px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);

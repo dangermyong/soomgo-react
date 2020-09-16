@@ -1,0 +1,95 @@
+
+.login-form {
+  width: 400px;
+  margin: 20px auto 20px;
+  padding: 10px;
+}
+
+.login-form h1 {
+  margin: 50px auto;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.loginForm {
+  /* border: 1px solid #999; */
+  padding: 20px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.login-form .title {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 30px 0;
+}
+
+.input-box {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  margin: 20px 0;
+}
+
+.password__input {
+  width: 100%;
+  position: relative;
+}
+
+.show-password {
+  position: absolute;
+  right: 10px;
+  transform: translateY(10px);
+  font-size: 14px;
+  background-color: beige;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.small {
+  font-size: 12px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.findPassword {
+  padding-top: 10px;
+  color: blue;
+}
+
+.login-btn {
+  width: 100%;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.new-btn {
+  background-color: var(--soomgo-dark);
+}
+
+.new-btn:hover {
+  background-color: var(--soomgo-light);
+}
+
+.facebook-btn {
+  background-color: #3c5a99;
+}
+
+.noId {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 20px;
+  margin-bottom: 50px;
+}
