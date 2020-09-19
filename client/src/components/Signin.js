@@ -29,14 +29,14 @@ function Signin() {
   function signin(email, password) {
     axios.post('http://localhost:5000/api/signin', {
         email, password
-    })
+    }, { withCredentials: true, crossDomain: true })
       .then(response => {
         console.log(response)
         // setMessage('로그인 완료되었습니다.')
         // setSuccess(true)
       })
       .catch(err => {
-        console.log(err.response.data.err)
+        console.log(err)
         // setMessage(err.response.data.err)
         // setSuccess(false)
       })

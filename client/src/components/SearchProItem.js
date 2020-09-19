@@ -3,15 +3,15 @@ import './css/SearchProItem.css'
 
 function SearchProItem({id, name, image, title, rating, introduction, review_name, review_comment}) {
   return (
-    <div class="gosulist">
+    <div className="gosulist">
       <a href=''>
-        <div class="picture"><img src={image} alt="" /></div>
-        <div class="profile">
-          <div class="name">{name}</div>
-          <div class="subject">{title}</div>
-          <div class="rating">{rating} / 5.0</div>
-          <div class="comment">{introduction}</div>
-          <div class="review"><strong>{review_name}</strong> {review_comment}</div>
+        <div className="picture"><img src={image} alt="" /></div>
+        <div className="profile">
+          <div className="name">{name}</div>
+          <div className="subject">{title}</div>
+          <div className="rating">{rating} / 5.0</div>
+          <div className="comment">{introduction}</div>
+          <div className="review"><strong>{review_name}</strong> {review_comment}</div>
         </div>
       </a>
     </div>

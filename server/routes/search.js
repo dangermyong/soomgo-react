@@ -24,8 +24,6 @@ router.get('/search/pro', checkUser, async (req, res, next) => {
     }
     connection.release();
     userName = req.token ? req.token.name : false
-    console.log(req.token)
-    console.log(userName, results)
     res.status(200).json({ userName, results})
     // res.render('searchPro', { userName, data: results });
     

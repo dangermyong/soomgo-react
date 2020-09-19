@@ -29,6 +29,7 @@ const checkUser = async (req, res, next) => {
         console.log(err.message);
       } else {
         req.token = decodedToken
+        console.log(decodedToken)
         next();
       }
     })

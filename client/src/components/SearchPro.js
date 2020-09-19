@@ -18,11 +18,9 @@ function SearchPro() {
   },[searchData])
 
   function search() {
-    axios.get('http://localhost:5000/api/search/pro', {
-        userName
+    axios.get('http://localhost:5000/api/search/pro', { withCredentials: true, crossDomain: true
     })
       .then(response => {
-        console.log(response.data.results)
         setSearchData(response.data.results)
         // setMessage('로그인 완료되었습니다.')
         // setSuccess(true)

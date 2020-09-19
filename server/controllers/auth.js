@@ -1,8 +1,10 @@
 const crypto = require('crypto')
 const pool = require('../utils/mysql.js')
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
-const maxAge = 24 * 60 * 60;
+
+const maxAge = 24 * 60 * 60 * 10;
 
 exports.signup = async (req, res) => {
   console.log('start')
@@ -50,8 +52,7 @@ exports.signin = async (req, res) => {
     connection.release();
     const payload = { id: user.id, name: user.name };
     const token = await jwt.sign(payload, process.env.JWT_SECRET);
-    console.log(token)
-    res.cookie('jwt', token, { httpOnly: false, maxAge: maxAge * 1000 })
+    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
     return res.json({ message: 'sign in successfully'})
   } catch (error) {
       console.log(error);
