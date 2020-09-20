@@ -6,7 +6,6 @@ import SearchProItem from './SearchProItem'
 
 
 function SearchPro() {
-  const [userName, setUserName] = useState('')
   const [searchData, setSearchData] = useState([])
   
   useEffect(() => {
@@ -52,14 +51,15 @@ function SearchPro() {
         <div className='proNumber'><strong>{searchData.length}</strong> 명의 고수</div><br />
         {searchData.map(item => (
           <SearchProItem 
-          id={item.id}
-          name={item.name}
-          image={item.image}
-          title={item.title}
-          rating={item.rating}
-          introduction={item.introduction}
-          review_name={item.review_name}
-          review_comment={item.review_comment}
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            image={item.image}
+            title={item.title}
+            rating={item.rating}
+            introduction={item.introduction}
+            review_name={item.review_name}
+            review_comment={item.review_comment}
           />
         ))}
       </div>

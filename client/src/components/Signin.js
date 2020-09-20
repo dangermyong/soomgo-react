@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './css/Signin.css'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -10,6 +10,7 @@ function Signin() {
     email: 'asdf1234@gmail.com',
     password: 'asdf1234',
   })
+  const [loginSuccess, setLoginSuccess] = useState(false)
 
   const { email, password } = values
 
@@ -31,7 +32,7 @@ function Signin() {
         email, password
     }, { withCredentials: true, crossDomain: true })
       .then(response => {
-        console.log(response)
+        setLoginSuccess(true)
         // setMessage('로그인 완료되었습니다.')
         // setSuccess(true)
       })
@@ -40,6 +41,12 @@ function Signin() {
         // setMessage(err.response.data.err)
         // setSuccess(false)
       })
+  }
+
+  const redirect = () => {
+    if(loginSuccess) {
+      return <Redirect to='/' />
+    }
   }
 
   return (
@@ -71,6 +78,7 @@ function Signin() {
         <button className="login-btn facebook-btn">페이스북으로 로그인</button>
       </form>
       <a href="/signin" className="noId">계정이 없으신가요?</a>
+      {redirect()}
     </div>
   )
 }

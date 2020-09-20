@@ -59,3 +59,18 @@ exports.signin = async (req, res) => {
       res.json({ status:500, msg: "에러가 났어요!"});
   }
 }
+
+exports.checkLogin = (req, res) => {
+  const token = req.cookies.jwt
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
+      if (err) {
+        console.log(err.message);
+      } else {
+        req.token = decodedToken
+        console.log(decodedToken)
+        return res.json({ user: decodedToken, message: 'sign in successfully'})
+      }
+    })
+  }
+}

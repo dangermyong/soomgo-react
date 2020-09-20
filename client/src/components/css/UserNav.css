@@ -1,0 +1,109 @@
+.userNav {
+  padding: 17px 24px;
+  border-bottom: 1px solid var(--secondary);
+}
+
+.userNav__logo {
+  height: 30px;
+  margin-right: 40px;
+}
+.userNav li {
+  list-style: none;
+  padding: 12px;
+  color: var(--gray);
+}
+
+.userNav {
+  display: flex;
+}
+
+.userNav__menu {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.userNav__menu__ul {
+  display: flex;
+}
+
+.userNav__profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  right: 30px;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+}
+.userNav__profile__accountIcon {
+  margin-left: 30px;
+  margin-right: 15px;
+}
+/* Modal */
+.modal {
+  position: fixed;
+  top: 90px;
+  right: 10px;
+  transform: scale(0);
+  border: 1px solid black;
+  z-index: 10;
+  background-color: white;
+  width: 200px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.modal-header .title {
+  display: block;
+  font-size: 1.0rem;
+  font-weight: bold;
+}
+
+.modal-header .title div {
+  margin-top: 10px;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}

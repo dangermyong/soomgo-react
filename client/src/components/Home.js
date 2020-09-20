@@ -19,7 +19,7 @@ function Home() {
             <span>딱! 맞는 고수를 <br />소개해드립니다</span>
           </div>
           <div className="search-container">
-            <input type="text" placeholder="어떤 분야의 달인을 찾으시나요?" autocomplete="off" />
+            <input type="text" placeholder="어떤 분야의 달인을 찾으시나요?" />
             <button type="submit"><i className="fas fa-search"></i></button>
           </div>
           <div className="list">
@@ -60,7 +60,7 @@ function Home() {
           </div>
           </div>
           <div className="image">
-              <img src="https://soomgo-myong.s3.ap-northeast-2.amazonaws.com/images/pilates.png" />
+              <img src="https://soomgo-myong.s3.ap-northeast-2.amazonaws.com/images/pilates.png" alt='model'/>
           </div>
       </section>
     </div>

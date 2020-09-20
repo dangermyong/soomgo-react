@@ -7,6 +7,7 @@ import Nav from './components/Nav';
 import SearchPro from './components/SearchPro';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
+import UserNav from './components/UserNav';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path='/signin' component={Signin} />
           <Route exact path='/choose-account' component={ChooseAccount} />
           <Route exact path='/search/pro' component={SearchPro} />
+          <Route exact path='/requests/sent' component={UserNav} />
           <Route exact path='/' component={Home} />
           {/* <PrivateRoute exact path='/dashboard' component={Dashboard} /> */}
         </Switch>

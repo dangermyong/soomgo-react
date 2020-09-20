@@ -1,5 +1,7 @@
 import React from 'react'
 import './css/Footer.css'
+import AppleIcon from '@material-ui/icons/Apple'
+import ArrowRightIcon from '@material-ui/icons/ArrowRight'
 
 function Footer() {
   return (
@@ -12,36 +14,36 @@ function Footer() {
             제외)
           </p>
           <div className="socialmedia">
-            <a href="#"><i className="fab fa-apple"></i>APP STORE</a>
-            <a href="#"><i className="fab fa-google-play"></i>PLAY STORE</a>
+            <button><AppleIcon /> APP STORE</button>
+            <button><ArrowRightIcon style={{ fontSize: 40 }} /> PLAY STORE</button>
           </div>
         </div>
         <div className="footer__rightbox__top">
           <ul className="content-list">
             <li className="content">
               <p className="small__text__title">숨고소개</p>
-              <a href="" className="small__text__content">회사소개</a>
-              <a href="" className="small__text__content">채용안내</a>
+              <p className="small__text__content">회사소개</p>
+              <p className="small__text__content">채용안내</p>
             </li>
             <li className="content">
               <p className="small__text__title">고객안내</p>
-              <a href="" className="small__text__content">이용안내</a>
-              <a href="" className="small__text__content">안전정책</a>
-              <a href="" className="small__text__content">예상금액</a>
-              <a href="" className="small__text__content">고수찾기</a>
-              <a href="" className="small__text__content">고수에게묻다</a>
+              <p className="small__text__content">이용안내</p>
+              <p className="small__text__content">안전정책</p>
+              <p className="small__text__content">예상금액</p>
+              <p className="small__text__content">고수찾기</p>
+              <p className="small__text__content">고수에게묻다</p>
             </li>
             <li className="content">
               <p className="small__text__title">고수안내</p>
-              <a href="" className="small__text__content">이용안내</a>
-              <a href="" className="small__text__content">고수가입</a>
-              <a href="" className="small__text__content">고수센터</a>
-              <a href="" className="small__text__content">고수후기</a>
+              <p className="small__text__content">이용안내</p>
+              <p className="small__text__content">고수가입</p>
+              <p className="small__text__content">고수센터</p>
+              <p className="small__text__content">고수후기</p>
             </li>
             <li className="content">
               <p className="small__text__title">고객센터</p>
-              <a href="" className="small__text__content">공지사항</a>
-              <a href="" className="small__text__content">자주묻는질문</a>
+              <p className="small__text__content">공지사항</p>
+              <p className="small__text__content">자주묻는질문</p>
             </li>
           </ul>
         </div>
@@ -49,8 +51,8 @@ function Footer() {
       <div className="footer__container footer__container__bottom">
         <div className="footer__leftbox__bottom">
           <div className="term__box">
-            <a href="" className="term__list">이용약관</a>
-            <a href="" className="term__list">개인정보취급방침</a>
+            <p className="term__list">이용약관</p>
+            <p className="term__list">개인정보취급방침</p>
             <span> </span>
           </div>
           <div className="term__description">

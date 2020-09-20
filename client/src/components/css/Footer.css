@@ -25,12 +25,21 @@
     margin-bottom: 20px;
   }
   
-  .socialmedia a {
+  .socialmedia {
+    display: flex;
+  }
+  .socialmedia button {
+    display: flex;
+    align-items: center;
     color: white;
     background-color: var(--soomgo-dark);
     border-radius: 20px;
     padding: 5px 20px;
     margin-right: 10px;
+    border-style: none;
+    font-size: 16px;
+    height: 34px;
+    line-height: 34px;
   }
   
   .socialmedia .fab {

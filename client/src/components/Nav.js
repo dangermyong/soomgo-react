@@ -1,23 +1,32 @@
-import React from 'react'
-import './css/Nav.css'
-import { Link, withRouter } from 'react-router-dom'
-
+import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
+import axios from 'axios'
+import GuestNav from './GuestNav'
+import UserNav from './UserNav'
 
 function Nav() {
+
+  const [user, setUser] = useState('')
+  
+  useEffect(() => {
+    checkLogin()
+  }, [])
+
+  function checkLogin() {
+    axios.get('http://localhost:5000/api/checklogin', { withCredentials: true, crossDomain: true })
+      .then(response => {
+        setUser(response.data.user)
+        console.log(response.data.user)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
   return (
-    <nav className="navbar">
-      <div className="navbar__logo">
-        <a href="/"><img src="https://soomgo-myong.s3.ap-northeast-2.amazonaws.com/images/soomgo_logo.png" alt="" /></a>
-      </div>
-      <div className="navbar__menu">
-        <ul className="navbar__menu">
-          <Link className="navbar__menu__item" to='/'>고수가입</Link>
-          <Link className="navbar__menu__item" to='/choose-account'>회원가입</Link>
-          <Link className="navbar__menu__item" to='/search/pro'>고수찾기</Link>
-          <Link className="navbar__menu__item" to='/signin'>로그인</Link>
-        </ul>
-      </div>
-    </nav>
+    <>
+    {user ? <UserNav /> : <GuestNav />}
+    </>
   )
 }
 
