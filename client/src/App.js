@@ -8,23 +8,27 @@ import SearchPro from './components/SearchPro';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
 import UserNav from './components/UserNav';
+import { LoginUserProvider } from './LoginUserContext'
+
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <Nav />
-        <Switch>
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/signin' component={Signin} />
-          <Route exact path='/choose-account' component={ChooseAccount} />
-          <Route exact path='/search/pro' component={SearchPro} />
-          <Route exact path='/requests/sent' component={UserNav} />
-          <Route exact path='/' component={Home} />
-          {/* <PrivateRoute exact path='/dashboard' component={Dashboard} /> */}
-        </Switch>
-        <Footer />
-      </BrowserRouter>
+      <LoginUserProvider>
+        <BrowserRouter>
+          <Nav />
+          <Switch>
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/signin' component={Signin} />
+            <Route exact path='/choose-account' component={ChooseAccount} />
+            <Route exact path='/search/pro' component={SearchPro} />
+            <Route exact path='/requests/sent' component={UserNav} />
+            <Route exact path='/' component={Home} />
+            {/* <PrivateRoute exact path='/dashboard' component={Dashboard} /> */}
+          </Switch>
+          <Footer />
+        </BrowserRouter>
+      </LoginUserProvider>
     </div>
   )
 }
