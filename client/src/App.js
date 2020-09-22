@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ChooseAccount from './components/ChooseAccount';
 import Footer from './components/Footer';
@@ -8,13 +8,29 @@ import SearchPro from './components/SearchPro';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
 import UserNav from './components/UserNav';
-import { LoginUserProvider } from './LoginUserContext'
 
+export const LoginUserContext = React.createContext()
+
+const initialState = 0
+const reducer = (state, action) => {
+  switch(action.type) {
+    case 'login':
+      return action.value
+    case 'logout':
+      return {}
+    default:
+      return state
+  }
+}
 
 function App() {
+  const [loginUser, dispatch] = useReducer(reducer, initialState)
+
+  console.log(loginUser)
+
   return (
     <div>
-      <LoginUserProvider>
+      <LoginUserContext.Provider value={{ loginUserState: loginUser, loginUserDispatch: dispatch }}>
         <BrowserRouter>
           <Nav />
           <Switch>
@@ -28,7 +44,7 @@ function App() {
           </Switch>
           <Footer />
         </BrowserRouter>
-      </LoginUserProvider>
+      </LoginUserContext.Provider>
     </div>
   )
 }

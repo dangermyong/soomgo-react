@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './css/Signin.css'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import { LoginUserContext } from '../App'
 
 
 function Signin() {
+  const loginUserContext = useContext(LoginUserContext)
   
   const [values, setValues] = useState({
     email: 'asdf1234@gmail.com',
@@ -33,13 +35,11 @@ function Signin() {
     }, { withCredentials: true, crossDomain: true })
       .then(response => {
         setLoginSuccess(true)
-        // setMessage('로그인 완료되었습니다.')
-        // setSuccess(true)
+        loginUserContext.loginUserDispatch({ type: 'login', value: response.data.userId})
+        console.log(loginUserContext.loginUserState)
       })
       .catch(err => {
         console.log(err)
-        // setMessage(err.response.data.err)
-        // setSuccess(false)
       })
   }
 

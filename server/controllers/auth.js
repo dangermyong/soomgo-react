@@ -43,6 +43,7 @@ exports.signin = async (req, res) => {
       return res.status(400).json({ err: 'Cannot find user' })
     }
     const user = users[0];
+    console.log(user)
     const loginHashedPwdByte = crypto.pbkdf2Sync(password, user.salt, 100000, 64, 'SHA512');
     const loginHashedPwd = loginHashedPwdByte.toString('base64');
     if (loginHashedPwd !== user.hashedPassword) {
@@ -53,7 +54,7 @@ exports.signin = async (req, res) => {
     const payload = { id: user.id, name: user.name };
     const token = await jwt.sign(payload, process.env.JWT_SECRET);
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
-    return res.json({ message: 'sign in successfully'})
+    return res.json({ userId: user.id, message: 'sign in successfully'})
   } catch (error) {
       console.log(error);
       res.json({ status:500, msg: "에러가 났어요!"});
