@@ -11,7 +11,7 @@ import UserNav from './components/UserNav';
 
 export const LoginUserContext = React.createContext()
 
-const initialState = 0
+const initialState = {}
 const reducer = (state, action) => {
   switch(action.type) {
     case 'login':
