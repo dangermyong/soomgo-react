@@ -4,9 +4,14 @@ import './css/SearchPro.css'
 import SearchIcon from '@material-ui/icons/Search'
 import SearchProItem from './SearchProItem'
 
-
 function SearchPro() {
+  const exampleUrls = [
+    ['부천', '회계', 0],
+    ['서울', '영어', 1],
+    ['시흥', '수학', 2],
+  ]
   const [searchData, setSearchData] = useState([])
+  const [searchInput, setSearchInput] = useState('')
   
   useEffect(() => {
     search()
@@ -21,15 +26,28 @@ function SearchPro() {
     })
       .then(response => {
         setSearchData(response.data.results)
-        // setMessage('로그인 완료되었습니다.')
-        // setSuccess(true)
       })
       .catch(err => {
         console.log(err)
-        // setMessage(err.response.data.err)
-        // setSuccess(false)
       })
   }
+
+  const requestData = (search) => {
+    axios.get(`http://localhost:5000/api/search/pro?search=${search}`, { withCredentials: true, crossDomain: true })
+    .then(response => {
+      setSearchData(response.data.results)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log(searchInput)
+    requestData(searchInput)
+  }
+
 
   return (
     <div className='main'>
@@ -39,14 +57,18 @@ function SearchPro() {
           <a href="/">숨고 > </a>
           <a href="/search/pro">지역,카테고리</a>
         </div>
-        <form className='searchProForm'>
+        <form onSubmit={handleSubmit} className='searchProForm'>
           <SearchIcon className='searchIcon'/>
-          <input className='searchProForm__input'type="search" placeholder="고수, 지역, 서비스를 검색해보세요" name="search" id="searchPro" />
+          <input className='searchProForm__input' type="search" placeholder="고수, 지역, 서비스를 검색해보세요" name="search" id="searchPro" value={searchInput} onChange={e => setSearchInput(e.target.value)} />
         </form>
         <div className="button">
-          <a href="/search/pro?search=부천+회계">부천 회계</a>
-          <a href="/search/pro?search=시흥+세무">시흥 세무</a>
-          <a href="/search/pro?search=서울+Java">서울 Java</a>
+          {exampleUrls.map(example => (
+            <button 
+              onClick={() => {requestData(`${example[0]} ${example[1]}`)}}
+              key={example[2]} 
+              className='example__button'>
+                {example[0]} {example[1]}
+            </button>))}
         </div>
         <div className='proNumber'><strong>{searchData.length}</strong> 명의 고수</div><br />
         {searchData.map(item => (

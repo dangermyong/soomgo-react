@@ -5,7 +5,7 @@ import './css/SearchProItem.css'
 function SearchProItem({id, name, image, title, rating, introduction, review_name, review_comment}) {
   return (
     <div className="gosulist">
-      <Link to='/search/pro'>
+      <Link to={`/profile/${id}`}>
         <div className="picture"><img src={image} alt="" /></div>
         <div className="profile">
           <div className="name">{name}</div>

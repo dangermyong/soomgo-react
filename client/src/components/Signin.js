@@ -25,7 +25,6 @@ function Signin() {
 
   const clickSubmit = event => {
     event.preventDefault()
-    console.log(email, password)
     signin( email, password )
   }
 
@@ -33,10 +32,9 @@ function Signin() {
     axios.post('http://localhost:5000/api/signin', {
         email, password
     }, { withCredentials: true, crossDomain: true })
-      .then(response => {
+      .then(res => {
         setLoginSuccess(true)
-        loginUserContext.loginUserDispatch({ type: 'login', value: response.data.userId})
-        console.log(loginUserContext.loginUserState)
+        loginUserContext.loginUserDispatch({ type: 'login', value: res.data})
       })
       .catch(err => {
         console.log(err)

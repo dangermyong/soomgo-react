@@ -55,7 +55,7 @@ h1 {
   margin: 10px 0 10px;
 }
 
-.button a {
+.button > .example__button {
   text-decoration: none;
   font-weight: 600;
   font-size: 12px;
@@ -67,6 +67,7 @@ h1 {
   border: 1px solid var(--gray);
   border-radius: 20px;
   text-align: center;
+  cursor: pointer;
 }
 
 .proNumber {
