@@ -1,18 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import './css/Signin.css'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import { LoginUserContext } from '../App'
 
 
 function Signin() {
-  const loginUserContext = useContext(LoginUserContext)
   
   const [values, setValues] = useState({
     email: 'asdf1234@gmail.com',
     password: 'asdf1234',
   })
-  const [loginSuccess, setLoginSuccess] = useState(false)
 
   const { email, password } = values
 
@@ -29,23 +26,19 @@ function Signin() {
   }
 
   function signin(email, password) {
-    axios.post('http://localhost:5000/api/signin', {
-        email, password
-    }, { withCredentials: true, crossDomain: true })
-      .then(res => {
-        setLoginSuccess(true)
-        loginUserContext.loginUserDispatch({ type: 'login', value: res.data})
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    axios.post('http://localhost:5000/api/signin', 
+      { email, password }, 
+      { withCredentials: true, crossDomain: true })
+        .then(res => {
+          const data = { id: res.data.id, name: res.data.name }
+          localStorage.setItem('Soomgo', JSON.stringify(data))
+          window.location.replace('/')
+        })
+        .catch(err => {
+          console.log(err)
+        })
   }
 
-  const redirect = () => {
-    if(loginSuccess) {
-      return <Redirect to='/' />
-    }
-  }
 
   return (
     <div className="login-form">
@@ -76,7 +69,6 @@ function Signin() {
         <button className="login-btn facebook-btn">페이스북으로 로그인</button>
       </form>
       <a href="/signin" className="noId">계정이 없으신가요?</a>
-      {redirect()}
     </div>
   )
 }

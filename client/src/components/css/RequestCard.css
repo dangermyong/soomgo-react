@@ -1,0 +1,65 @@
+.requestCard{
+  padding: 10px 15px;
+  border: 1px solid lightgray;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.requestCard__date {
+  display: flex;
+  justify-content: space-between;
+  font-size: .90rem;
+  margin-bottom: 10px;
+}
+
+.requestCard__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: .3125rem .375rem;
+  color: #737373;
+  font-size: .75rem;
+  font-weight: 500;
+  background: #f2f2f2;
+  border-radius: 4px;
+}
+
+.requestCard > h4 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.requestCard__imgContainer {
+  text-align: left;
+  margin-bottom: 15px;
+}
+.requestCard__img {
+  width: 64px;
+  height: 64px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.requestCard__btn {
+  color: #fff;
+  background-color: #00c7ae;
+  border-color: #00c7ae;
+  font-weight: 500;
+  transition: opacity .2s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: .6875rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  width: 100%;
+  outline: none;
+  font-weight: 800;
+}
+
+.requestCard__btn:hover {
+  background-color: #009481;
+}
+
+

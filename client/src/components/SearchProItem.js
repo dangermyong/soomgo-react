@@ -1,18 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './css/SearchProItem.css'
+import StarRating from './StarRating'
+import SmsIcon from '@material-ui/icons/Sms';
 
-function SearchProItem({id, name, image, title, rating, introduction, review_name, review_comment}) {
+function SearchProItem({id, name, image, rating, introduction, review_name, review_comment}) {
   return (
     <div className="gosulist">
       <Link to={`/profile/${id}`}>
         <div className="picture"><img src={image} alt="" /></div>
         <div className="profile">
-          <div className="name">{name}</div>
-          <div className="subject">{title}</div>
-          <div className="rating">{rating} / 5.0</div>
-          <div className="comment">{introduction}</div>
-          <div className="review"><strong>{review_name}</strong> {review_comment}</div>
+          <div className="gosulist__name">{name}</div>
+          <div className="gosulist__rate">
+            <StarRating rate={rating}/>
+            <div className="gosulist__rating">{rating} / 5.0</div>
+          </div>
+          <div className="gosulist__comment">
+          {introduction}</div>
+          <div className="gosulist__review">
+            <SmsIcon size="small" color="disabled"/>
+            <span className="gosulist__review__comment">
+              <strong>{review_name}</strong> {review_comment}
+            </span>
+          </div>
         </div>
       </Link>
     </div>

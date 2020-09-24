@@ -1,0 +1,22 @@
+.request {
+  max-width: 970px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.request > h1 {
+  margin: 40px auto 30px;
+  font-weight: 600;
+  color: #323232;
+  text-align: left;
+}
+
+.request__list{
+  width: 100%;
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 20px 40px;
+}

@@ -54,7 +54,7 @@ exports.signin = async (req, res) => {
     const payload = { id: user.id, name: user.name };
     const token = await jwt.sign(payload, process.env.JWT_SECRET);
     res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
-    return res.status(200).json({ userId: user.id, userName: user.name })
+    return res.status(200).json({ id: user.id, name: user.name })
   } catch (error) {
       console.log(error);
       res.json({ status:500, msg: "에러가 났어요!"});

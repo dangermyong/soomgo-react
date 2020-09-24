@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './css/Home.css'
 import Lesson from './picture/lesson.svg'
 import HomeLiving from './picture/home-living.svg'
@@ -11,6 +11,13 @@ import Etc from './picture/etc.svg'
 
 
 function Home() {
+  const [searchInput, setSearchInput] = useState('')
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    window.location.replace(`/search/pro/${searchInput}`)
+  }
+
   return (
     <div className='main'>
       <section className="intro">
@@ -18,10 +25,14 @@ function Home() {
           <div className="catchphrase">
             <span>딱! 맞는 고수를 <br />소개해드립니다</span>
           </div>
-          <div className="search-container">
-            <input type="text" placeholder="어떤 분야의 달인을 찾으시나요?" />
-            <button type="submit"><i className="fas fa-search"></i></button>
-          </div>
+          <form className="search-container" onSubmit={handleSubmit} action="submit">
+            <input 
+              type="text" 
+              placeholder="어떤 분야의 달인을 찾으시나요?" 
+              value={searchInput} 
+              onChange={e => setSearchInput(e.target.value)}
+            />
+          </form>
           <div className="list">
             <ul>
               <li className="item1">

@@ -1,37 +1,44 @@
-.profile__title {
-  margin-top: 20px;
-  margin-left: 20px;
-  font-size: 40px;
-}
-
 .profile__section {
-  display: block;
+  max-width: 970px;
   width: 100%;
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.profile__container {
-  display: block;
-  max-width: 800px;
+.profile__title {
   margin: 30px auto;
-  text-align: start;
+  font-weight: 600;
+  color: #323232;
+  text-align: left;
 }
 
-.profileHeader {
+.profile__header {
   display: flex;
 }
 
-.profileText {
+.profile__picture {
+  border-radius: 12px;
+}
+
+.profile__text {
   display: block;
   margin-left: 20px;
   text-align: start;
 }
-.profileText > p {
-  padding: 5px;
-}
-.name {
-  font-size: 20px;
+
+.profile__name {
+  font-size: 30px;
   font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.profile__subject {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profile__rate {
+  display: flex;
 }
 
 .gosuInfo {
@@ -52,7 +59,7 @@
   font-weight: 600;
 }
 
-.content {
+.profile__content {
   margin-left: 5px;
   padding: 5px;
   font-size: 16px;

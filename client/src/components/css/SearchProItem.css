@@ -6,6 +6,8 @@
   padding-bottom: 1.0rem;
 }
 
+
+
 .gosulist a{
   display: flex;
   text-decoration: none;
@@ -18,18 +20,44 @@
 }
 
 .profile {
-  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
   padding: 5px;
 }
-.profile div{
-  margin-bottom: 5px;  
-}
 
-.name {
+.gosulist__name {
   font-size: 20px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.review {
+.gosulist__rate {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.gosulist__rating {
+  margin-left: 10px;
   font-size: 14px;
+  font-weight: 500;
+}
+
+.gosulist__comment {
+  margin-bottom: 10px;
+}
+
+.gosulist__snsIcon {
+  background-color: white;
+  color: black;
+}
+
+.gosulist__review {
+  font-size: 14px;
+}
+
+.gosulist__review__comment {
+  padding-bottom: 10px;
+  vertical-align: top;
+  margin-left: 5px;
 }

@@ -3,9 +3,9 @@ import axios from 'axios'
 import './css/SearchPro.css'
 import SearchIcon from '@material-ui/icons/Search'
 import SearchProItem from './SearchProItem'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-function SearchPro() {
+function SearchProParam() {
   let { id } = useParams()
   
   const exampleUrls = [
@@ -17,14 +17,11 @@ function SearchPro() {
   const [searchInput, setSearchInput] = useState('')
   
   useEffect(() => {
-    search()
-  }, [])
-
-  useEffect(() => {
     if(id) {
+      console.log(id)
       requestData(id)
     }
-  }, [id])
+  }, [])
   
   function search() {
     axios.get('http://localhost:5000/api/search/pro', { withCredentials: true, crossDomain: true
@@ -49,6 +46,7 @@ function SearchPro() {
 
   const handleSubmit = e => {
     e.preventDefault()
+    console.log(searchInput)
     requestData(searchInput)
   }
 
@@ -58,18 +56,12 @@ function SearchPro() {
       <h1><a href="/search/pro">고수찾기</a></h1>
       <div className="container">
         <div className="linkbox">
-          <Link to="/">숨고 &gt; </Link>
+          <a href="/">숨고 > </a>
           <a href="/search/pro">지역,카테고리</a>
         </div>
         <form onSubmit={handleSubmit} className='searchProForm'>
           <SearchIcon className='searchIcon'/>
-          <input 
-            className='searchProForm__input' 
-            type="search" 
-            placeholder="고수, 지역, 서비스를 검색해보세요" name="search" 
-            id="searchPro" 
-            value={searchInput} onChange={e => setSearchInput(e.target.value)} 
-          />
+          <input className='searchProForm__input' type="search" placeholder="고수, 지역, 서비스를 검색해보세요" name="search" id="searchPro" value={searchInput} onChange={e => setSearchInput(e.target.value)} />
         </form>
         <div className="button">
           {exampleUrls.map(example => (
@@ -99,4 +91,4 @@ function SearchPro() {
   )
 }
 
-export default SearchPro
+export default SearchProParam

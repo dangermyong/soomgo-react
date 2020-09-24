@@ -12,7 +12,17 @@
   padding: 12px;
   color: var(--gray);
 }
+.userNav__searchProForm {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
 
+.userNav__searchInput {
+  height: 30px;
+  border: none;
+  font-size: 14px;
+}
 .userNav {
   display: flex;
 }

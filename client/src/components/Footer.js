@@ -14,8 +14,8 @@ function Footer() {
             제외)
           </p>
           <div className="socialmedia">
-            <button><AppleIcon /> APP STORE</button>
-            <button><ArrowRightIcon style={{ fontSize: 40 }} /> PLAY STORE</button>
+            <button className='socialmedia__button'><AppleIcon className='socialmedia__button__apple' /> APP STORE</button>
+            <button className='socialmedia__button'><ArrowRightIcon className='socialmedia__button__google' /> PLAY STORE</button>
           </div>
         </div>
         <div className="footer__rightbox__top">
