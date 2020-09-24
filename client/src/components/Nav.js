@@ -10,7 +10,6 @@ function Nav() {
   
   useEffect(() => {
     checkLogin()
-    console.log('check login')
   })
 
   const checkLogin =  () => {

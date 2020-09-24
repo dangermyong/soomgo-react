@@ -14,10 +14,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StarRating({ rate }) {
   const classes = useStyles();
-
+  
   return (
     <div className={classes.root}>
       <Rating name="half-rating-read" size='small' defaultValue={rate} precision={0.1} readOnly />
     </div>
-  );
+  )
 }

@@ -5,6 +5,9 @@ import StarRating from './StarRating'
 import SmsIcon from '@material-ui/icons/Sms';
 
 function SearchProItem({id, name, image, rating, introduction, review_name, review_comment}) {
+  if(review_comment == '') {
+    review_comment = '아직 리뷰가 없습니다.'
+  }
   return (
     <div className="gosulist">
       <Link to={`/profile/${id}`}>

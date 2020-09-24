@@ -33,35 +33,55 @@
 }
 
 .profile__subject {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 5px;
   font-size: 15px;
   font-weight: 600;
 }
 
 .profile__rate {
+  margin-left: 5px;
   display: flex;
 }
 
-.gosuInfo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 20px;
-}
-
-.basicInfo .addedInfo {
-  width: 50%;
-  text-align: left;
-}
-
-.smallTitle {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-size: 20px;
+.profile__rating {
+  margin-left: 5px;
+  font-size: 14px;
   font-weight: 600;
 }
 
+.profile__smallTitle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.profile__introduction {
+  font-size: 1rem;
+}
+
 .profile__content {
-  margin-left: 5px;
-  padding: 5px;
-  font-size: 16px;
+  display: flex;
+  font-size: 1rem;
   min-width: 400px;
+  position: relative;
+  letter-spacing: -.3px;
+  color: #737373;
+  text-indent: 30px;
+  margin-bottom: 12px;
+  vertical-align: middle;
+}
+
+.profile__gosuInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.profile__basicInfo .profile__addedInfo {
+  width: 50%;
+  text-align: left;
 }
