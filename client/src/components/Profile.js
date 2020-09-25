@@ -26,6 +26,7 @@ function Profile() {
         console.log(err)
     })
   }
+
   if (isLoading) {
     return <div>Loading...</div>
   } else {
@@ -68,7 +69,6 @@ function Profile() {
       </div>
     )
   }
-  
 }
 
 export default Profile

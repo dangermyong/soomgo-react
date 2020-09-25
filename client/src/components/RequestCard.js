@@ -2,14 +2,14 @@ import React from 'react'
 import './css/RequestCard.css'
 import Pic from './code.jpg'
 
-function RequestCard() {
+function RequestCard({ title, expiredDate, isExpired}) {
   return (
     <div className='requestCard'>
       <div className="requestCard__date">
-        <span className='requestCard__badge'>마감</span>
-        <span>2020.01.14</span>
+        <span className='requestCard__badge'>{isExpired ? '마감' : '진행중'}</span>
+        <span>{expiredDate}</span>
       </div>
-      <h4>골프 레슨</h4>
+      <h4>{title}</h4>
       <div className="requestCard__imgContainer">
         <img className='requestCard__img' src={Pic} alt=""/>
         <img className='requestCard__img' src={Pic} alt=""/>
