@@ -11,7 +11,7 @@ function SearchProItem({id, name, image, rating, introduction, review_name, revi
   return (
     <div className="gosulist">
       <Link to={`/profile/${id}`}>
-        <div className="picture"><img src={image} alt="" /></div>
+        <div className="picture"><img src={image} alt="" width='120px' height='120px' /></div>
         <div className="profile">
           <div className="gosulist__name">{name}</div>
           <div className="gosulist__rate">

@@ -34,7 +34,7 @@ function Profile() {
       <div className='profile__section'>
         <h1 className='profile__title'>고수 프로필</h1>
         <div className='profile__header'>
-          <img className='profile__picture' src={data.image} alt='' />
+          <img className='profile__picture' src={data.image} width='120px' height='120px' alt='' />
           <div className='profile__text'>
             <p className='profile__name'>{data.name}</p>
             <p className='profile__subject'>{data.subject}</p>

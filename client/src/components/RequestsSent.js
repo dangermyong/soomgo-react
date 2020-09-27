@@ -33,9 +33,11 @@ function RequestsSent() {
           {data.map(item => (
             <RequestCard 
               key={item.id}
+              id={item.id}
               title={item.title}
               expiredDate={item.expiredDate.split('T')[0]}
               isExpired={item.isExpired}
+              estimates={item.estimates}
             />
           ))}
           <RequestCard />

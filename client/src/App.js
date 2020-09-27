@@ -28,6 +28,7 @@ function App() {
             <Route exact path='/search/pro/:id' component={SearchProParam} />
             <Route exact path='/search/pro' component={SearchPro} />
             <Route exact path='/requests/sent' component={RequestsSent} />
+            <Route exact path='/requests/quotes/:id' component={RequestsQuotes} />
             <Route exact path='/profile/:id' component={Profile} />
             <Route exact path='/' component={Home} />
             {/* <PrivateRoute exact path='/dashboard' component={Dashboard} /> */}
