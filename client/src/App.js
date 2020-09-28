@@ -13,6 +13,7 @@ import MyStore from './MyStore'
 import { observer } from 'mobx-react'
 import SearchProParam from './components/SearchProParam'
 import RequestsSent from './components/RequestsSent'
+import RequestsQuotes from './components/RequestsQuotes'
 
 
 function App() {

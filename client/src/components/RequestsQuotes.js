@@ -1,36 +1,64 @@
-import React from 'react'
-import './css/RequestCard.css'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import './css/RequestsQuotes.css'
+import Quotes from './Quotes'
 
-function RequestCard({ id, title, expiredDate, isExpired, estimates}) {
-  const img = () => {
-    if(estimates == null) {
-      return(<div className='requestCard__noEstimates'>아직 받은 견적이 없습니다.</div>)
-    } else {
-      return (
-        estimates.map(estimate => (
-          <img key={estimate.id} className='requestCard__img' src={estimate.image} alt=""/>
-      ))
-    )}
+function RequestsQuotes() {
+  let { id } = useParams()
+  
+  const [isLoading, setLoading] = useState(true)
+  const [quotes, setQuotes] = useState()
+  
+  useEffect(() => {
+    if(id) {
+      requestData(id)
+    }
+  }, [id])
+  
+  const requestData = (requestsId) => {
+    axios.get(`http://localhost:5000/api/requests/quotes/${requestsId}`, { withCredentials: true, crossDomain: true })
+    .then(response => {
+      setQuotes(response.data.results[0])
+      setLoading(false)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
-  return (
-    <div className='requestCard'>
-      <div className="requestCard__date">
-        <span className='requestCard__badge'>{isExpired ? '마감' : '진행중'}</span>
-        <span>{expiredDate}</span>
+  if (isLoading) {
+    return <div>Loading...</div>
+  } else {
+    return (
+      <div className="requestsQuotes">
+        {console.log(quotes)}
+        <div 
+          className="requestsQuotes__titleBackground"
+          style={{backgroundImage: `url(${quotes.backgroundImage})`}}
+        >
+          <div className='requestsQuotes__titleBox'>
+            <h1 className="requestsQuotes__title">{quotes.title}</h1>
+            <span className='requestsQuotes__date'>{quotes.requestDate.split('T')[0]}</span>
+            <br />
+            <button className="requestsQuotes__btn">자세히 보기</button>
+          </div>
+        </div>
+        <div className='requestsQuotes__quotes'>
+          {quotes.estimates.map(item => (
+            <Quotes
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              rating={item.rating}
+              price={item.price}
+              image={item.image}
+            />
+          ))}
+        </div>
       </div>
-      <h4>{title}</h4>
-      <div className="requestCard__imgContainer">
-        {img()}
-      </div>
-      <div className="requestCard__btnContainer">
-        <Link to={`/requests/quotes/${id}`}>
-          <button className="requestCard__btn">자세히 보기</button>
-        </Link>
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default RequestCard
+export default RequestsQuotes
