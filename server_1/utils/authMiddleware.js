@@ -34,7 +34,6 @@ const checkUser = async (req, res, next) => {
       }
     })
   } else {
-    console.log('token not found')
     next()
   }
 };

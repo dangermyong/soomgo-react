@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { API } from '../config'
 import './css/RequestsQuotes.css'
 import Quotes from './Quotes'
 
@@ -17,7 +18,11 @@ function RequestsQuotes() {
   }, [id])
   
   const requestData = (requestsId) => {
-    axios.get(`http://localhost:5000/api/requests/quotes/${requestsId}`, { withCredentials: true, crossDomain: true })
+    const user = JSON.parse(localStorage.getItem('Soomgo'))
+    if(user == null) {
+      window.location.replace('/signin')
+    }
+    axios.get(`${API}/requests/quotes/${requestsId}`, { id: user.id }, { withCredentials: true, crossDomain: true })
     .then(response => {
       setQuotes(response.data.results[0])
       setLoading(false)

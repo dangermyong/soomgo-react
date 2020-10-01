@@ -6,6 +6,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import Modal from 'react-modal'
 import Axios from 'axios'
+import { API } from '../config'
 
 Modal.setAppElement('#root')
 function UserNav() {
@@ -23,7 +24,7 @@ function UserNav() {
   }
   
   const signout = (next) => {
-    Axios.get('http://localhost:5000/api/signout', { withCredentials: true, crossDomain: true })
+    Axios.get(`${API}/signout`, { withCredentials: true, crossDomain: true })
       .then(res => {
         console.log(res)
         console.log('logout success')

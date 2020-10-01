@@ -4,6 +4,7 @@ import './css/SearchPro.css'
 import SearchIcon from '@material-ui/icons/Search'
 import SearchProItem from './SearchProItem'
 import { Link, useParams } from 'react-router-dom'
+import { API } from '../config'
 
 function SearchPro() {
   let { id } = useParams()
@@ -27,7 +28,7 @@ function SearchPro() {
   }, [id])
   
   function search() {
-    axios.get('http://localhost:5000/api/search/pro', { withCredentials: true, crossDomain: true
+    axios.get(`${API}/search/pro`, { withCredentials: true, crossDomain: true
   })
       .then(response => {
         setSearchData(response.data.results)
@@ -38,7 +39,7 @@ function SearchPro() {
   }
 
   const requestData = (search) => {
-    axios.get(`http://localhost:5000/api/search/pro?search=${search}`, { withCredentials: true, crossDomain: true })
+    axios.get(`${API}/search/pro?search=${search}`, { withCredentials: true, crossDomain: true })
     .then(response => {
       setSearchData(response.data.results)
     })

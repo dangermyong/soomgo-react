@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './css/Signin.css'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import { API } from '../config'
 
 
 function Signin() {
@@ -26,7 +27,7 @@ function Signin() {
   }
 
   function signin(email, password) {
-    axios.post('http://localhost:5000/api/signin', 
+    axios.post(`${API}/signin`, 
       { email, password }, 
       { withCredentials: true, crossDomain: true })
         .then(res => {

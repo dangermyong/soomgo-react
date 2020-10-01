@@ -4,6 +4,7 @@ import './css/SearchPro.css'
 import SearchIcon from '@material-ui/icons/Search'
 import SearchProItem from './SearchProItem'
 import { useParams } from 'react-router-dom'
+import { API } from '../config'
 
 function SearchProParam() {
   let { id } = useParams()
@@ -24,7 +25,7 @@ function SearchProParam() {
   }, [])
   
   function search() {
-    axios.get('http://localhost:5000/api/search/pro', { withCredentials: true, crossDomain: true
+    axios.get(`${API}/search/pro`, { withCredentials: true, crossDomain: true
   })
       .then(response => {
         setSearchData(response.data.results)
@@ -35,7 +36,7 @@ function SearchProParam() {
   }
 
   const requestData = (search) => {
-    axios.get(`http://localhost:5000/api/search/pro?search=${search}`, { withCredentials: true, crossDomain: true })
+    axios.get(`${API}/search/pro?search=${search}`, { withCredentials: true, crossDomain: true })
     .then(response => {
       setSearchData(response.data.results)
     })
@@ -56,7 +57,7 @@ function SearchProParam() {
       <h1><a href="/search/pro">고수찾기</a></h1>
       <div className="container">
         <div className="linkbox">
-          <a href="/">숨고 > </a>
+          <a href="/">숨고 &gt; </a>
           <a href="/search/pro">지역,카테고리</a>
         </div>
         <form onSubmit={handleSubmit} className='searchProForm'>

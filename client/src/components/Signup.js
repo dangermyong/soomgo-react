@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './css/Signup.css'
+import { API } from '../config'
 
 function Signup() {
   const [values, setValues] = useState({
@@ -15,7 +16,7 @@ function Signup() {
   const { name, email, password } = values
 
   function signup(name, email, password) {
-    axios.post('http://localhost:5000/api/signup', {
+    axios.post(`${API}/signup`, {
         name, email, password
     })
       .then(response => {

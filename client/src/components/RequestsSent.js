@@ -1,10 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Redirect } from 'react-router-dom'
+import { API } from '../config'
 import './css/RequestsSent.css'
 import RequestCard from './RequestCard'
 
 function RequestsSent() {
-  const [isLoading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState([{}])
   
   useEffect(() => {
@@ -12,10 +14,14 @@ function RequestsSent() {
   }, [])
   
   const getRequsets = () => {
-    axios.get(`http://localhost:5000/api/requests/sent`, { withCredentials: true, crossDomain: true })
+    const user = JSON.parse(localStorage.getItem('Soomgo'))
+    if(user == null) {
+      window.location.replace('/signin')
+    }
+    axios.post(`${API}/requests/sent`, { id: user.id }, { withCredentials: true, crossDomain: true })
       .then(res => {
         setData(res.data.results)
-        setLoading(false)
+        setIsLoading(false)
       })
       .catch(err => {
         console.log(err)
@@ -27,7 +33,6 @@ function RequestsSent() {
   } else {
     return (
       <div className="request">
-        {console.log(data)}
         <h1>받은 견적</h1>
         <div className="request__list">
           {data.map(item => (

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import './css/Profile.css'
 import StarRating from './StarRating'
 import CheckIcon from '@material-ui/icons/Check';
+import { API } from '../config'
 
 
 function Profile() {
@@ -17,7 +18,7 @@ function Profile() {
   }, [])
   
   const getProfile = () => {
-    axios.get(`http://localhost:5000/api/profile/${id}`, { withCredentials: true, crossDomain: true })
+    axios.get(`${API}/profile/${id}`, { withCredentials: true, crossDomain: true })
       .then(res => {
         setData(res.data)
         setLoading(false)

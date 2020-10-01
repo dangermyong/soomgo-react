@@ -9,7 +9,6 @@ require('dotenv').config()
 const authRoutes = require('./routes/auth')
 const searchRoutes = require('./routes/search')
 const requestsRoutes = require('./routes/requests')
-const profileRoutes = require('./routes/profile')
 
 // app
 const app = express()
@@ -18,27 +17,15 @@ const app = express()
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cookieParser())
-
 app.use(cors({
-  origin: 'http://soomgo-react-server.com.s3-website.ap-northeast-2.amazonaws.com',
+  origin: 'http://localhost:3000',
   credentials: true,
 }))
 
-app.use(function(req, res, next) {
-  res.header('Content-Type', 'application/json;charset=UTF-8')
-  res.header('Access-Control-Allow-Credentials', true)
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  )
-  next()
-})
-
-//routes middleware
-app.use('/api/search', searchRoutes)
-app.use('/api/requests', requestsRoutes)
-app.use('/api/profile', profileRoutes)
+  //routes middleware
 app.use('/api', authRoutes)
+app.use('/api', searchRoutes)
+app.use('/api/requests', requestsRoutes)
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {
